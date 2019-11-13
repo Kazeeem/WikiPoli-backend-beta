@@ -73,7 +73,42 @@
         text-decoration: none;
     }
 
+    .first {
+        margin-left: 3.5em;
+        margin-right: 3.5em;
+        margin-top: -1em;
+    }
+    .first a {
+        text-decoration: none;
+    }
 
+    @media only screen and (max-width: 425px) {
+
+        .first {
+            margin-left: -1em;
+        }
+    }
+
+    @media only screen and (width: 375px) {
+    
+        .first {
+            margin: auto;
+        }
+    }
+    
+    @media only screen and (width: 425px) {
+        
+        .first {
+            margin: auto;
+        }
+    }
+
+    @media only screen and (max-width: 320px) {
+        
+        .first {
+            margin: auto;
+        }
+    }
 
 
 </style>
@@ -209,8 +244,7 @@
                 <a href="{{url('posts/'.$post->slug)}}"><i class="fa fa-reply ml-3" aria-hidden="true"  style="color:#1257AE"></i></a>
                 <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u={{url('posts/'.$post->slug)}}& amp; t={{$post->title}}', 'facebookShare', 'width=626,height=436');
                         return false;" title="Share on Facebook"><i class="fab fa-facebook  float-right" aria-hidden="true"></i></a>
-                <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} - & amp;
-                        url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
+                <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} -&amp;url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
                                 return false;" title="Tweet This Post"><i class="fab fa-twitter pr-3 float-right"></i></a>
 
             </div>

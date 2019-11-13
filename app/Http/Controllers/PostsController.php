@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Comment;
 use App\Models\Post;
-use Spatie\Searchable\Search;
 use App\Politician;
 
 class PostsController extends Controller {
@@ -31,7 +29,7 @@ class PostsController extends Controller {
         $query = "MATCH (first_name,last_name) AGAINST ('$input' IN BOOLEAN MODE)";
 
         $data['results'] = Politician::whereRaw($query)->with('politicianpost')->get();
-        return view('web.searchOld', $data);
+        return view('web.search', $data);
     }
 
     /**
@@ -57,6 +55,10 @@ class PostsController extends Controller {
 
     }
 
+    public function showDetail($slug) {
+         $data['politician'] = Politician::whereSlug($slug)->firstOrFail();
+        return view('web.details',$data); 
+    }
     /**
      * Show the form for editing the specified resource.
      *
